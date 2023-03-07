@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
-    @Bean // 빈 이름은 메소드 이름으로 등록된다.
+    @Bean // 빈 이름은 메소드 이름으로 등록된다. - 빈이름은 다른 이름으로 부여해야 한다.
     public MemberService memberService() {
         // 생성자 주입 - 구현체를 client가 아닌 별도 클래스에서 넣어준다.
         /**

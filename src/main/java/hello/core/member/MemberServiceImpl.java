@@ -1,5 +1,9 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService {
 
     /**
@@ -8,6 +12,7 @@ public class MemberServiceImpl implements MemberService {
      */
     private final MemberRepository memberRepository; // 인터페이스 안에 구현 객체를 넣어줘야 한다.
 
+    @Autowired
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

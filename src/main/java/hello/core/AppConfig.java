@@ -22,6 +22,7 @@ public class AppConfig {
 
     @Bean // 빈 이름은 메소드 이름으로 등록된다. - 빈이름은 다른 이름으로 부여해야 한다.
     public MemberService memberService() {
+        System.out.println("call AppConfig.memberService");
         // 생성자 주입 - 구현체를 client가 아닌 별도 클래스에서 넣어준다.
         /**
          * 클라이언트(MemberServiceImpl) 입장에서 보면 의존관계를 마치 외부에서 주입해주는 것과 같다고 해서 DI(Dependency Injection)로, 의존관계 주입이라고 한다.
@@ -32,11 +33,13 @@ public class AppConfig {
     // 생성해주는 역활을 분리하자. - 중복도 제거됨 + 역활과 구현이 한눈에 보여짐!
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println(" call AppConfig.orderService");
         // 생성자 주입
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }

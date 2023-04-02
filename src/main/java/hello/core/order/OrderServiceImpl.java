@@ -18,14 +18,34 @@ public class OrderServiceImpl implements OrderService {
      * DIP를 위반하지 않도록 의존하도록 변경.
      */
 
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy; // 인터페이스만 의존하도록 변경
+    // @Autowired  private MemberRepository memberRepository;
+    private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy; // 인터페이스만 의존하도록 변경
 
     @Autowired // @Autowired를 사용하면 생성자에서 의존관계를 자동으로 주입 받을 수 있다.
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
+    // 일반 메서드 주입
+    /*@Autowired
+    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }*/
+
+    // 수정자 주입
+    /*@Autowired// (required = false) - 의존관계를 선택적으로 넣어줄 수 있다.
+    public void setMemberRepository(MemberRepository memberRepository) {
+        System.out.println("memberRepository = " + memberRepository);
+        this.memberRepository = memberRepository;
+    }
+    @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        System.out.println("discountPolicy = " + discountPolicy);
+        this.discountPolicy = discountPolicy;
+    }*/
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

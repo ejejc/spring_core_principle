@@ -19,10 +19,10 @@ public class OrderServiceImpl implements OrderService {
      */
 
     // @Autowired  private MemberRepository memberRepository;
-    private MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy; // 인터페이스만 의존하도록 변경
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy; // 인터페이스만 의존하도록 변경
 
-    @Autowired // @Autowired를 사용하면 생성자에서 의존관계를 자동으로 주입 받을 수 있다.
+    @Autowired // @Autowired를 사용하면 생성자에서 의존관계를 자동으로 주입 받을 수 있다. / 생성자 주입을 하면 final 키워드를 넣을 수 있다.
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;

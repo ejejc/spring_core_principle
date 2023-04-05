@@ -41,7 +41,7 @@ public class AppConfig {
     public OrderService orderService() {
         System.out.println(" call AppConfig.orderService");
         // 생성자 주입
-        return null;
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     // 생성해주는 역활을 분리하자.

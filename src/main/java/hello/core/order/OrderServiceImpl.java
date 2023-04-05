@@ -3,10 +3,13 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+// @RequiredArgsConstructor // final이 붙은 필드들을 가지고 생성자를 만들어준다.
 public class OrderServiceImpl implements OrderService {
 
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy(); 할인 정책이 변경됨에 따라 client(OrderServiceImpl)를 고쳐야 되는 문제점 발생.

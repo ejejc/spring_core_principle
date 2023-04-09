@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -52,5 +53,11 @@ public class AllbeanTest {
             DiscountPolicy discountPolicy = policyMap.get(discountCode);
             return discountPolicy.discount(member, price);
         }
+
+        public int discountServic(Member member, int price, String discountCode) {
+            DiscountPolicy discountPolicy = policyMap.get(discountCode);
+            return discountPolicy.discount(member, price);
+        }
+
     }
 }
